@@ -43,5 +43,5 @@ void loop()
   LoRa.print(labview);
   LoRa.endPacket();
   
-  delay(5000);
+  delay(3000);
 }

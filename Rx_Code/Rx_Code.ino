@@ -3,25 +3,23 @@
 void setup() 
 {
   Serial.begin(9600);
-  Serial.println("LoRa Receiver");
+  //Serial.println("1");
   if (!LoRa.begin(433E6)) 
   {
-    Serial.println("Starting LoRa failed!");
+    //Serial.println("10");
     while (1);
   }
   LoRa.setSyncWord(0xF3);
-  Serial.println("LoRa Initializing OK!");
+  //Serial.println("5");
 }
-void loop() 
+void loop()
 {
-  // To store the received message in a string, uncomment line 16 and 24.
-  // String str="";
   String LoRaData; 
 
   int packetSize = LoRa.parsePacket();
   if (packetSize)
   {
-    Serial.print("Received packet:   ");
+    //Serial.print("Received packet:   ");
     while (LoRa.available()) 
     {
       LoRaData = LoRa.readString();
@@ -32,4 +30,6 @@ void loop()
     //Serial.print(" (with RSSI) ");
     //Serial.println(LoRa.packetRssi());
   }
+
+  //delay(3000);
 }
